@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paskibra UNIT 113 - UPT SMAN 13 TAKALAR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variabel Warna */
+        :root {
+            --merah: #B22222;
+            --cream: #FFFDD0;
+            --merah-tua: #8B0000;
+            --cream-muda: #FFFEF5;
+            --text: #333;
+            --text-light: #666;
+        }
+
+        /* Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cream-muda);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            color: var(--merah-tua);
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--merah);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--merah-tua);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--merah), var(--merah-tua));
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo span {
+            color: var(--cream);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--cream);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('smn.jpeg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--merah);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Activities Section */
+        .activities {
+            background-color: var(--cream);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .activity-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .activity-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .activity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .activity-card:hover .activity-image img {
+            transform: scale(1.1);
+        }
+
+        .activity-content {
+            padding: 20px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            height: 200px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(178, 34, 34, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Members Section */
+        .members {
+            background-color: var(--cream);
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .member-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-img-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--cream);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--merah-tua);
+        }
+
+        .member-role {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: white;
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            background-color: var(--merah);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--merah-tua), var(--merah));
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            color: var(--cream);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--cream);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--cream);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--merah);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--merah);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--merah-tua);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-img-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--cream);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--merah-tua);
+            margin-bottom: 5px;
+        }
+
+        .modal-role {
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .modal-cohort {
+            color: var(--merah);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .biodata-section {
+            background-color: var(--cream);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .biodata-section h4 {
+            color: var(--merah-tua);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--merah);
+            padding-bottom: 5px;
+        }
+
+        .biodata-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .biodata-label {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .biodata-value {
+            color: var(--text);
+            text-align: right;
+        }
+
+        .social-links-modal {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links-modal a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--merah);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links-modal a:hover {
+            background-color: var(--merah-tua);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--merah);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+
+            .about-image, .about-text, .contact-info, .contact-form {
+                width: 100%;
+            }
+            
+            .members-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .modal-img-container {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        /* Cohort Headings */
+        .cohort-heading {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .cohort-heading:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--merah);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .cohort-heading:first-child {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="Paskibra.png" alt="Logo Paskibra">
+                    PASKIB<span>RA</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#activities">Kegiatan</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#members">Anggota</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                <div class="hamburger">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>PASKIBRA UNIT 113</h1>
+                <h2>UPT SMAN 13 TAKALAR</h2>
+                <p>TERPAKSA, TERSIKSA DAN TERLATIH.</p>
+                <p>Membentuk Generasi Disiplin, Tangguh, dan Berkarakter</p>
+                <a href="#about" class="btn">Pelajari Lebih Lanjut</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Paskibra</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Paskibra adalah singkatan dari Pasukan Pengibar Bendera, sebuah organisasi yang bertugas mengibarkan dan menurunkan bendera dalam upacara-upacara kenegaraan dan peringatan hari besar nasional.</p>
+                    <p>Organisasi ini tidak hanya mengajarkan tentang teknik baris-berbaris dan pengibaran bendera, tetapi juga membentuk karakter disiplin, tanggung jawab, dan nasionalisme pada anggotanya.</p>
+                    <p>Paskibra UNIT 113 UPT SMAN 13 TAKALAR memiliki sejarah panjang dalam memperingati kemerdekaan Indonesia, dengan peran penting dalam upacara pengibaran bendera di sekolah setiap tanggal 17 Agustus.</p>
+                    <a href="#activities" class="btn">Lihat Kegiatan Kami</a>
+                </div>
+                <div class="about-image">
+                    <img src="smn.jpeg" alt="Sekolah SMAN 13 Takalar">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="activities" id="activities">
+        <div class="container">
+            <h2 class="section-title">Kegiatan Paskibra</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://source.unsplash.com/random/600x400/?marching" alt="Latihan Baris Berbaris">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Latihan Baris Berbaris</h3>
+                        <p>Melatih kedisiplinan dan kekompakan melalui gerakan baris berbaris yang tepat dan seragam.</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://source.unsplash.com/random/600x400/?flag,ceremony" alt="Pengibaran Bendera">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Pengibaran Bendera</h3>
+                        <p>Mempelajari teknik pengibaran bendera yang benar dan penuh khidmat dalam upacara resmi.</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://source.unsplash.com/random/600x400/?leadership,training" alt="Pembinaan Karakter">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Pembinaan Karakter</h3>
+                        <p>Membangun karakter disiplin, tanggung jawab, dan nasionalisme melalui berbagai kegiatan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeri Kegiatan</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="HUT.JPEG" alt="Upacara HUT Kemerdekaan">
+                    <div class="gallery-overlay">
+                        <span>Upacara HUT Kemerdekaan</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="HUT2.JPEG" alt="Latihan Baris Berbaris">
+                    <div class="gallery-overlay">
+                        <span>Latihan Baris Berbaris</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="HUT1.JPEG" alt="Kegiatan Team Building">
+                    <div class="gallery-overlay">
+                        <span>Kegiatan Team Building</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="HUT4.JPEG" alt="Pelatihan Kepemimpinan">
+                    <div class="gallery-overlay">
+                        <span>Pelatihan Kepemimpinan</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="HUT3.JPEG" alt="Upacara Kenegaraan">
+                    <div class="gallery-overlay">
+                        <span>Upacara Kenegaraan</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://source.unsplash.com/random/600x400/?youth,activity" alt="Kegiatan Sosial">
+                    <div class="gallery-overlay">
+                        <span>Kegiatan Sosial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section class="members" id="members">
+        <div class="container">
+            <h2 class="section-title">Anggota Paskibra</h2>
+            <div class="members-container">
+                <!-- Anggota akan dimasukkan di sini dengan JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>UPT SMAN 13 Takalar<br>Jl. Pendidikan No. 123, Takalar</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>(021) 1234-5678</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>paskibra113@sman13takalar.sch.id</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Kirim Pesan</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>PASKIBRA UNIT 113</h3>
+                    <p>UPT SMAN 13 TAKALAR - Membentuk Generasi Disiplin, Tangguh, dan Berkarakter.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Link Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#activities">Kegiatan</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
+                        <li><a href="#members">Anggota</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Kegiatan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Latihan Baris Berbaris</a></li>
+                        <li><a href="#">Pengibaran Bendera</a></li>
+                        <li><a href="#">Pembinaan Karakter</a></li>
+                        <li><a href="#">Kegiatan Sosial</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Paskibra UNIT 113 UPT SMAN 13 Takalar. Semua Hak Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal untuk Detail Anggota -->
+    <div class="modal" id="memberModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <div class="modal-img-container">
+                    <img id="modalImg" src="" alt="Foto Anggota" class="modal-img">
+                </div>
+                <h3 id="modalName" class="modal-name"></h3>
+                <p id="modalRole" class="modal-role"></p>
+                <p id="modalCohort" class="modal-cohort"></p>
+            </div>
+            
+            <div class="biodata-section">
+                <h4>Biodata</h4>
+                <div class="biodata-item">
+                    <span class="biodata-label">Nama Lengkap:</span>
+                    <span id="modalFullName" class="biodata-value"></span>
+                </div>
+                <div class="biodata-item">
+                    <span class="biodata-label">Kelas:</span>
+                    <span id="modalClass" class="biodata-value"></span>
+                </div>
+                <div class="biodata-item">
+                    <span class="biodata-label">TTL:</span>
+                    <span id="modalBirth" class="biodata-value"></span>
+                </div>
+                <div class="biodata-item">
+                    <span class="biodata-label">Alamat:</span>
+                    <span id="modalAddress" class="biodata-value"></span>
+                </div>
+                <div class="biodata-item">
+                    <span class="biodata-label">Hobi:</span>
+                    <span id="modalHobby" class="biodata-value"></span>
+                </div>
+            </div>
+            
+            <div class="biodata-section">
+                <h4>Media Sosial</h4>
+                <div class="social-links-modal">
+                    <a id="modalIg" href="#" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a id="modalFb" href="#" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data anggota Paskibra berdasarkan angkatan
+        const membersByCohort = {
+            pembina: [
+                {
+                    name: 'Pak Arman',
+                    role: 'Pembina Paskibra',
+                    cohort: 'Pembina',
+                    img: 'pembina.png',
+                    fullName: 'Andi Mulawarman, S.Pd',
+                    class: '-',
+                    birth: 'Takalar, 15 April 1985',
+                    address: 'Jl. Pendidikan No. 123, Takalar',
+                    hobby: 'Membaca, Sepak Bola',
+                    ig: 'https://instagram.com/andi_mulawarman',
+                    fb: 'https://facebook.com/andi.mulawarman'
+                }
+            ],
+            pendiri: [
+                {
+                    name: 'Ahmad Firmansyah',
+                    role: 'Pendiri',
+                    cohort: 'Pendiri',
+                    img: 'https://source.unsplash.com/random/300x300/?person,face',
+                    fullName: 'Ahmad Firmansyah',
+                    class: 'XII IPA 1 (Alumni)',
+                    birth: 'Takalar, 10 Mei 2000',
+                    address: 'Jl. Merdeka No. 45, Takalar',
+                    hobby: 'Berkemah, Fotografi',
+                    ig: 'https://instagram.com/ahmad_firmansyah',
+                    fb: 'https://facebook.com/ahmad.firmansyah'
+                }
+            ],
+            7: [
+                {
+                    name: 'Abdul Rahmat',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 7',
+                    img: 'rahmat.png',
+                    fullName: 'Abdul Rahmat',
+                    class: 'IX IPA 2',
+                    birth: 'Takalar, 30 Januari 2007',
+                    address: 'Jl. Flamboyan No. 23, Takalar',
+                    hobby: 'Basket, Fotografi',
+                    ig: 'https://instagram.com/abdul_rahmat',
+                    fb: 'https://facebook.com/abdul.rahmat'
+                }
+            ],
+            6: [
+                {
+                    name: 'Hasir',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 6',
+                    img: 'hasir.png',
+                    fullName: 'Hasir',
+                    class: 'X IPA 3',
+                    birth: 'Takalar, 5 Juni 2006',
+                    address: 'Jl. Melati No. 89, Takalar',
+                    hobby: 'Sepak Bola, Video Editing',
+                    ig: 'https://instagram.com/hasir_',
+                    fb: 'https://facebook.com/hasir'
+                },
+                {
+                    name: 'Maghfira Nurman',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 6',
+                    img: 'pira.png',
+                    fullName: 'Maghfira Nurman',
+                    class: 'X IPA 1',
+                    birth: 'Takalar, 18 September 2006',
+                    address: 'Jl. Kenanga No. 44, Takalar',
+                    hobby: 'Memasak, Traveling',
+                    ig: 'https://instagram.com/maghfira_nurman',
+                    fb: 'https://facebook.com/maghfira.nurman'
+                }
+            ],
+            5: [],
+            4: [],
+            3: [
+                {
+                    name: 'MUHAMMAD IBRAHIM',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 3',
+                    img: '3a.jpeg',
+                    fullName: 'Muhammad Ibrahim',
+                    class: 'XI IPA 2',
+                    birth: 'Takalar, 12 Agustus 2005',
+                    address: 'Jl. Pattimura No. 78, Takalar',
+                    hobby: 'Bulu Tangkis, Musik',
+                    ig: 'https://instagram.com/m_ibrahim',
+                    fb: 'https://facebook.com/muhammad.ibrahim'
+                },
+                {
+                    name: 'HASBI ASHIDDIQI',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 3',
+                    img: '3b.jpeg',
+                    fullName: 'Hasbi Ashiddiqi',
+                    class: 'XI IPA 3',
+                    birth: 'Takalar, 3 Maret 2005',
+                    address: 'Jl. Diponegoro No. 22, Takalar',
+                    hobby: 'Futsal, Membaca',
+                    ig: 'https://instagram.com/hasbi_ashiddiqi',
+                    fb: 'https://facebook.com/hasbi.ashiddiqi'
+                },
+                {
+                    name: 'ARIFUDDIN NURKAMAJAYA',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 3',
+                    img: '3C.jpeg',
+                    fullName: 'Arifuddin Nurkamajaya',
+                    class: 'XI IPS 1',
+                    birth: 'Takalar, 20 Juli 2005',
+                    address: 'Jl. Sudirman No. 56, Takalar',
+                    hobby: 'Renang, Game',
+                    ig: 'https://instagram.com/arifuddin_nk',
+                    fb: 'https://facebook.com/arifuddin.nurkamajaya'
+                },
+                {
+                    name: 'MUSPIRA',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 3',
+                    img: '3D.jpeg',
+                    fullName: 'Muspira',
+                    class: 'XI IPA 1',
+                    birth: 'Takalar, 8 November 2005',
+                    address: 'Jl. Ahmad Yani No. 33, Takalar',
+                    hobby: 'Menari, Memasak',
+                    ig: 'https://instagram.com/muspira_',
+                    fb: 'https://facebook.com/muspira'
+                },
+                {
+                    name: 'ST FATIMAH AZZAHRA',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 3',
+                    img: '3E.jpeg',
+                    fullName: 'St. Fatimah Azzahra',
+                    class: 'XI IPS 2',
+                    birth: 'Takalar, 25 Desember 2005',
+                    address: 'Jl. Gatot Subroto No. 67, Takalar',
+                    hobby: 'Membaca, Menulis',
+                    ig: 'https://instagram.com/fatimah_azzahra',
+                    fb: 'https://facebook.com/fatimah.azzahra'
+                },
+                {
+                    name: 'RISNAWATI',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 3',
+                    img: '3F.jpeg',
+                    fullName: 'Risnawati',
+                    class: 'XI IPA 2',
+                    birth: 'Takalar, 14 Februari 2005',
+                    address: 'Jl. Pahlawan No. 12, Takalar',
+                    hobby: 'Melukis, Menyanyi',
+                    ig: 'https://instagram.com/risnawati_',
+                    fb: 'https://facebook.com/risnawati'
+                }
+            ],
+            2: [],
+            1: [],
+            0: []
+        };
+
+        // Fungsi untuk menampilkan anggota berdasarkan angkatan
+        function displayMembers() {
+            const membersContainer = document.querySelector('.members-container');
+            
+            // Urutan angkatan yang diinginkan
+            const cohortOrder = ['pembina', 'pendiri', 7, 6, 5, 4, 3, 2, 1, 0];
+            
+            cohortOrder.forEach(cohort => {
+                const members = membersByCohort[cohort];
+                
+                // Hanya tampilkan angkatan yang memiliki anggota
+                if (members && members.length > 0) {
+                    const cohortHeading = document.createElement('h3');
+                    cohortHeading.className = 'cohort-heading';
+                    
+                    // Format judul angkatan
+                    if (cohort === 'pembina') {
+                        cohortHeading.textContent = 'Pembina';
+                    } else if (cohort === 'pendiri') {
+                        cohortHeading.textContent = 'Pendiri';
+                    } else {
+                        cohortHeading.textContent = `Angkatan ${cohort}`;
+                    }
+                    
+                    membersContainer.appendChild(cohortHeading);
+                    
+                    const membersGrid = document.createElement('div');
+                    membersGrid.className = 'members-grid';
+                    
+                    members.forEach(member => {
+                        const memberCard = document.createElement('div');
+                        memberCard.className = 'member-card fade-in';
+                        
+                        memberCard.innerHTML = `
+                            <div class="member-img-container">
+                                <img src="${member.img}" alt="${member.name}" class="member-img">
+                            </div>
+                            <div class="member-name">${member.name}</div>
+                            <div class="member-role">${member.role}</div>
+                            <div class="member-bio">${member.fullName}</div>
+                        `;
+                        
+                        // Tambahkan event listener untuk membuka modal
+                        memberCard.addEventListener('click', () => openMemberModal(member));
+                        
+                        membersGrid.appendChild(memberCard);
+                    });
+                    
+                    membersContainer.appendChild(membersGrid);
+                }
+            });
+        }
+
+        // Fungsi untuk membuka modal anggota
+        function openMemberModal(member) {
+            const modal = document.getElementById('memberModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalName = document.getElementById('modalName');
+            const modalRole = document.getElementById('modalRole');
+            const modalCohort = document.getElementById('modalCohort');
+            const modalFullName = document.getElementById('modalFullName');
+            const modalClass = document.getElementById('modalClass');
+            const modalBirth = document.getElementById('modalBirth');
+            const modalAddress = document.getElementById('modalAddress');
+            const modalHobby = document.getElementById('modalHobby');
+            const modalIg = document.getElementById('modalIg');
+            const modalFb = document.getElementById('modalFb');
+            
+            // Isi data modal dengan informasi anggota
+            modalImg.src = member.img;
+            modalName.textContent = member.name;
+            modalRole.textContent = member.role;
+            modalCohort.textContent = member.cohort;
+            modalFullName.textContent = member.fullName;
+            modalClass.textContent = member.class;
+            modalBirth.textContent = member.birth;
+            modalAddress.textContent = member.address;
+            modalHobby.textContent = member.hobby;
+            modalIg.href = member.ig;
+            modalFb.href = member.fb;
+            
+            // Tampilkan modal
+            modal.classList.add('active');
+            
+            // Blokir scroll pada body
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Fungsi untuk menutup modal
+        function closeMemberModal() {
+            const modal = document.getElementById('memberModal');
+            modal.classList.remove('active');
+            
+            // Kembalikan scroll pada body
+            document.body.style.overflow = 'auto';
+        }
+
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking a link
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(178, 34, 34, 0.95)';
+            } else {
+                header.style.backgroundColor = '';
+            }
+        });
+
+        // Event listener untuk tombol close modal
+        document.getElementById('closeModal').addEventListener('click', closeMemberModal);
+
+        // Event listener untuk menutup modal dengan mengklik di luar konten
+        document.getElementById('memberModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeMemberModal();
+            }
+        });
+
+        // Event listener untuk menutup modal dengan tombol ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMemberModal();
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            displayMembers();
+        });
+    </script>
+</body>
+</html>
