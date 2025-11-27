@@ -28,6 +28,7 @@
             background-color: var(--cream-muda);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
@@ -77,6 +78,12 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .scrolled {
+            background: rgba(178, 34, 34, 0.95);
+            padding: 10px 0;
         }
 
         .navbar {
@@ -84,6 +91,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
+            transition: all 0.3s ease;
         }
 
         .logo {
@@ -101,10 +109,11 @@
             margin-right: 10px;
             border-radius: 50%;
             object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        .logo span {
-            color: var(--cream);
+        .logo:hover img {
+            transform: rotate(10deg);
         }
 
         .nav-links {
@@ -121,10 +130,22 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--cream);
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--cream);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
         }
 
         .hamburger {
@@ -143,36 +164,72 @@
             text-align: center;
             color: white;
             margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(178, 34, 34, 0.3), rgba(139, 0, 0, 0.3));
+            z-index: 1;
         }
 
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             color: white;
             margin-bottom: 20px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            animation: fadeInDown 1s ease;
         }
 
         .hero h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: white;
             margin-bottom: 20px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            animation: fadeInDown 1s ease 0.2s both;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 30px;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero .btn {
+            animation: fadeInUp 1s ease 0.6s both;
         }
 
         /* About Section */
         .about {
             background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: var(--merah);
+            border-radius: 50%;
+            opacity: 0.1;
         }
 
         .section-title {
@@ -207,6 +264,19 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .about-image:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--merah);
+            border-radius: 10px;
+            z-index: -1;
         }
 
         .about-image img {
@@ -223,6 +293,20 @@
         /* Activities Section */
         .activities {
             background-color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activities:before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: var(--merah-tua);
+            border-radius: 50%;
+            opacity: 0.1;
         }
 
         .activities-grid {
@@ -237,6 +321,23 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .activity-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--merah);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .activity-card:hover:before {
+            transform: scaleX(1);
         }
 
         .activity-card:hover {
@@ -267,6 +368,20 @@
         /* Gallery Section */
         .gallery {
             background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: var(--merah);
+            border-radius: 50%;
+            opacity: 0.1;
         }
 
         .gallery-grid {
@@ -315,6 +430,20 @@
         /* Members Section */
         .members {
             background-color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .members:before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: var(--merah-tua);
+            border-radius: 50%;
+            opacity: 0.1;
         }
 
         .members-grid {
@@ -332,6 +461,24 @@
             text-align: center;
             padding: 20px;
             cursor: pointer;
+            position: relative;
+        }
+
+        .member-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--merah);
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .member-card:hover:before {
+            opacity: 0.2;
         }
 
         .member-card:hover {
@@ -347,12 +494,35 @@
             overflow: hidden;
             border: 5px solid var(--cream);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .member-img-container:before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            border: 2px solid var(--merah);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .member-card:hover .member-img-container:before {
+            opacity: 0.5;
         }
 
         .member-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .member-card:hover .member-img {
+            transform: scale(1.05);
         }
 
         .member-name {
@@ -375,6 +545,20 @@
         /* Contact Section */
         .contact {
             background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: var(--merah);
+            border-radius: 50%;
+            opacity: 0.1;
         }
 
         .contact-content {
@@ -407,6 +591,11 @@
             justify-content: center;
             margin-right: 15px;
             flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: rotate(15deg);
         }
 
         .form-group {
@@ -426,6 +615,13 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--merah);
+            outline: none;
         }
 
         .form-group textarea {
@@ -438,6 +634,19 @@
             background: linear-gradient(135deg, var(--merah-tua), var(--merah));
             color: white;
             padding: 50px 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
         }
 
         .footer-content {
@@ -482,10 +691,22 @@
             color: #ddd;
             text-decoration: none;
             transition: color 0.3s ease;
+            position: relative;
         }
 
-        .footer-links a:hover {
-            color: var(--cream);
+        .footer-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: var(--cream);
+            left: 0;
+            bottom: -2px;
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover:after {
+            width: 100%;
         }
 
         .social-links {
@@ -504,11 +725,12 @@
             border-radius: 50%;
             color: white;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .social-links a:hover {
             background-color: var(--merah);
+            transform: translateY(-3px);
         }
 
         .copyright {
@@ -736,6 +958,22 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
         .fade-in {
             animation: fadeIn 0.8s ease forwards;
         }
@@ -763,6 +1001,29 @@
         .cohort-heading:first-child {
             margin-top: 0;
         }
+        
+        /* Floating Animation */
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -772,7 +1033,7 @@
             <nav class="navbar">
                 <a href="#" class="logo">
                     <img src="Paskibra.png" alt="Logo Paskibra">
-                    PASKIB<span>RA</span>
+                    PASKIBRA
                 </a>
                 <ul class="nav-links">
                     <li><a href="#home">Beranda</a></li>
@@ -803,15 +1064,15 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">Tentang Paskibra</h2>
+            <h2 class="section-title reveal">Tentang Paskibra</h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text reveal">
                     <p>Paskibra adalah singkatan dari Pasukan Pengibar Bendera, sebuah organisasi yang bertugas mengibarkan dan menurunkan bendera dalam upacara-upacara kenegaraan dan peringatan hari besar nasional.</p>
                     <p>Organisasi ini tidak hanya mengajarkan tentang teknik baris-berbaris dan pengibaran bendera, tetapi juga membentuk karakter disiplin, tanggung jawab, dan nasionalisme pada anggotanya.</p>
                     <p>Paskibra UNIT 113 UPT SMAN 13 TAKALAR memiliki sejarah panjang dalam memperingati kemerdekaan Indonesia, dengan peran penting dalam upacara pengibaran bendera di sekolah setiap tanggal 17 Agustus.</p>
                     <a href="#activities" class="btn">Lihat Kegiatan Kami</a>
                 </div>
-                <div class="about-image">
+                <div class="about-image reveal">
                     <img src="smn.jpeg" alt="Sekolah SMAN 13 Takalar">
                 </div>
             </div>
@@ -821,9 +1082,9 @@
     <!-- Activities Section -->
     <section class="activities" id="activities">
         <div class="container">
-            <h2 class="section-title">Kegiatan Paskibra</h2>
+            <h2 class="section-title reveal">Kegiatan Paskibra</h2>
             <div class="activities-grid">
-                <div class="activity-card">
+                <div class="activity-card reveal">
                     <div class="activity-image">
                         <img src="https://source.unsplash.com/random/600x400/?marching" alt="Latihan Baris Berbaris">
                     </div>
@@ -832,7 +1093,7 @@
                         <p>Melatih kedisiplinan dan kekompakan melalui gerakan baris berbaris yang tepat dan seragam.</p>
                     </div>
                 </div>
-                <div class="activity-card">
+                <div class="activity-card reveal">
                     <div class="activity-image">
                         <img src="https://source.unsplash.com/random/600x400/?flag,ceremony" alt="Pengibaran Bendera">
                     </div>
@@ -841,7 +1102,7 @@
                         <p>Mempelajari teknik pengibaran bendera yang benar dan penuh khidmat dalam upacara resmi.</p>
                     </div>
                 </div>
-                <div class="activity-card">
+                <div class="activity-card reveal">
                     <div class="activity-image">
                         <img src="https://source.unsplash.com/random/600x400/?leadership,training" alt="Pembinaan Karakter">
                     </div>
@@ -857,39 +1118,39 @@
     <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="container">
-            <h2 class="section-title">Galeri Kegiatan</h2>
+            <h2 class="section-title reveal">Galeri Kegiatan</h2>
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="gallery-item reveal">
                     <img src="HUT.JPEG" alt="Upacara HUT Kemerdekaan">
                     <div class="gallery-overlay">
                         <span>Upacara HUT Kemerdekaan</span>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item reveal">
                     <img src="HUT2.JPEG" alt="Latihan Baris Berbaris">
                     <div class="gallery-overlay">
                         <span>Latihan Baris Berbaris</span>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item reveal">
                     <img src="HUT1.JPEG" alt="Kegiatan Team Building">
                     <div class="gallery-overlay">
                         <span>Kegiatan Team Building</span>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item reveal">
                     <img src="HUT4.JPEG" alt="Pelatihan Kepemimpinan">
                     <div class="gallery-overlay">
                         <span>Pelatihan Kepemimpinan</span>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item reveal">
                     <img src="HUT3.JPEG" alt="Upacara Kenegaraan">
                     <div class="gallery-overlay">
                         <span>Upacara Kenegaraan</span>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item reveal">
                     <img src="https://source.unsplash.com/random/600x400/?youth,activity" alt="Kegiatan Sosial">
                     <div class="gallery-overlay">
                         <span>Kegiatan Sosial</span>
@@ -902,7 +1163,7 @@
     <!-- Members Section -->
     <section class="members" id="members">
         <div class="container">
-            <h2 class="section-title">Anggota Paskibra</h2>
+            <h2 class="section-title reveal">Anggota Paskibra</h2>
             <div class="members-container">
                 <!-- Anggota akan dimasukkan di sini dengan JavaScript -->
             </div>
@@ -912,11 +1173,11 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Hubungi Kami</h2>
+            <h2 class="section-title reveal">Hubungi Kami</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Informasi Kontak</h3>
-                    <div class="contact-item">
+                    <h3 class="reveal">Informasi Kontak</h3>
+                    <div class="contact-item reveal">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
@@ -925,7 +1186,7 @@
                             <p>UPT SMAN 13 Takalar<br>Jl. Pendidikan No. 123, Takalar</p>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item reveal">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
@@ -934,7 +1195,7 @@
                             <p>(021) 1234-5678</p>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item reveal">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
@@ -944,32 +1205,32 @@
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="reveal"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="reveal"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="reveal"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="reveal"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3>Kirim Pesan</h3>
+                    <h3 class="reveal">Kirim Pesan</h3>
                     <form>
-                        <div class="form-group">
+                        <div class="form-group reveal">
                             <label for="name">Nama Lengkap</label>
                             <input type="text" id="name" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group reveal">
                             <label for="email">Email</label>
                             <input type="email" id="email" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group reveal">
                             <label for="subject">Subjek</label>
                             <input type="text" id="subject" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group reveal">
                             <label for="message">Pesan</label>
                             <textarea id="message" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Kirim Pesan</button>
+                        <button type="submit" class="btn reveal">Kirim Pesan</button>
                     </form>
                 </div>
             </div>
@@ -1031,7 +1292,7 @@
                     <span id="modalFullName" class="biodata-value"></span>
                 </div>
                 <div class="biodata-item">
-                    <span class="biodata-label">Kelas:</span>
+                    <span class="biodata-label">Kelas/Pekerjaan:</span>
                     <span id="modalClass" class="biodata-value"></span>
                 </div>
                 <div class="biodata-item">
@@ -1045,6 +1306,10 @@
                 <div class="biodata-item">
                     <span class="biodata-label">Hobi:</span>
                     <span id="modalHobby" class="biodata-value"></span>
+                </div>
+                <div class="biodata-item">
+                    <span class="biodata-label">NRA:</span>
+                    <span id="modalNRA" class="biodata-value"></span>
                 </div>
             </div>
             
@@ -1063,54 +1328,23 @@
     </div>
 
     <script>
-        // Data anggota Paskibra berdasarkan angkatan
+        // Data anggota Paskibra berdasarkan angkatan (dari yang terbaru ke terlama)
         const membersByCohort = {
-            pembina: [
-                {
-                    name: 'Pak Arman',
-                    role: 'Pembina Paskibra',
-                    cohort: 'Pembina',
-                    img: 'pembina.png',
-                    fullName: 'Andi Mulawarman, S.Pd',
-                    class: '-',
-                    birth: 'Takalar, 15 April 1985',
-                    address: 'Jl. Pendidikan No. 123, Takalar',
-                    hobby: 'Membaca, Sepak Bola',
-                    ig: 'https://instagram.com/andi_mulawarman',
-                    fb: 'https://facebook.com/andi.mulawarman'
-                }
-            ],
-            pendiri: [
-                {
-                    name: 'Ahmad Firmansyah',
-                    role: 'Pendiri',
-                    cohort: 'Pendiri',
-                    img: 'https://source.unsplash.com/random/300x300/?person,face',
-                    fullName: 'Ahmad Firmansyah',
-                    class: 'XII IPA 1 (Alumni)',
-                    birth: 'Takalar, 10 Mei 2000',
-                    address: 'Jl. Merdeka No. 45, Takalar',
-                    hobby: 'Berkemah, Fotografi',
-                    ig: 'https://instagram.com/ahmad_firmansyah',
-                    fb: 'https://facebook.com/ahmad.firmansyah'
-                }
-            ],
-            7: [
-                {
-                    name: 'Abdul Rahmat',
-                    role: 'Anggota',
-                    cohort: 'Angkatan 7',
-                    img: 'rahmat.png',
-                    fullName: 'Abdul Rahmat',
-                    class: 'IX IPA 2',
-                    birth: 'Takalar, 30 Januari 2007',
-                    address: 'Jl. Flamboyan No. 23, Takalar',
-                    hobby: 'Basket, Fotografi',
-                    ig: 'https://instagram.com/abdul_rahmat',
-                    fb: 'https://facebook.com/abdul.rahmat'
-                }
-            ],
             6: [
+                {
+                    name: 'Fajrin',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 6',
+                    img: 'https://ui-avatars.com/api/?name=Fajrin&background=random&color=fff&size=150',
+                    fullName: 'Fajrin',
+                    class: 'Pelajar',
+                    birth: '',
+                    address: '',
+                    hobby: '',
+                    nra: '23.05.113.076',
+                    ig: '',
+                    fb: ''
+                },
                 {
                     name: 'Hasir',
                     role: 'Anggota',
@@ -1121,6 +1355,7 @@
                     birth: 'Takalar, 5 Juni 2006',
                     address: 'Jl. Melati No. 89, Takalar',
                     hobby: 'Sepak Bola, Video Editing',
+                    nra: '',
                     ig: 'https://instagram.com/hasir_',
                     fb: 'https://facebook.com/hasir'
                 },
@@ -1134,80 +1369,732 @@
                     birth: 'Takalar, 18 September 2006',
                     address: 'Jl. Kenanga No. 44, Takalar',
                     hobby: 'Memasak, Traveling',
+                    nra: '',
                     ig: 'https://instagram.com/maghfira_nurman',
                     fb: 'https://facebook.com/maghfira.nurman'
                 }
             ],
-            5: [],
-            4: [],
+            5: [
+                {
+                    name: 'Siti Anugrah Rahayu',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Siti+Anugrah+Rahayu&background=random&color=fff&size=150',
+                    fullName: 'Siti Anugrah Rahayu',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 13 Agustus 2007',
+                    address: 'Sawakong',
+                    hobby: '',
+                    nra: '21.05.510.033',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muh Usran',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Muh+Usran&background=random&color=fff&size=150',
+                    fullName: 'Muh Usran',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 8 Juli 2008',
+                    address: 'Tanringmata',
+                    hobby: '',
+                    nra: '22.05.510.029',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muh Ardi Nugraha',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Muh+Ardi+Nugraha&background=random&color=fff&size=150',
+                    fullName: 'Muh Ardi Nugraha',
+                    class: 'Pelajar',
+                    birth: 'Sidrap, 1 Mei 2006',
+                    address: '',
+                    hobby: '',
+                    nra: '22.05.510.026',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Indriani',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Indriani&background=random&color=fff&size=150',
+                    fullName: 'Indriani',
+                    class: 'Pelajar',
+                    birth: 'Sawakong, 24 November 2007',
+                    address: 'Bontomattiro',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Suci Ramadani',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Suci+Ramadani&background=random&color=fff&size=150',
+                    fullName: 'Suci Ramadani',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 28 September 2007',
+                    address: 'Kato\'nokang',
+                    hobby: '',
+                    nra: '22.05.510.042',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Vika Ulandari',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Vika+Ulandari&background=random&color=fff&size=150',
+                    fullName: 'Vika Ulandari',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 11 Januari 2007',
+                    address: 'Bontoa',
+                    hobby: '',
+                    nra: '22.05.510.046',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muh Syarif Saputra',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Muh+Syarif+Saputra&background=random&color=fff&size=150',
+                    fullName: 'Muh Syarif Saputra',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 4 Juni 2007',
+                    address: 'Kassi Desa Kadatong',
+                    hobby: '',
+                    nra: '22.05.510.031',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muhammad Iqbal Aprilian',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Muhammad+Iqbal+Aprilian&background=random&color=fff&size=150',
+                    fullName: 'Muhammad Iqbal Aprilian',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 30 April 2007',
+                    address: 'Kalibentang',
+                    hobby: '',
+                    nra: '22.05.510.027',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Farhan',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Farhan&background=random&color=fff&size=150',
+                    fullName: 'Farhan',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 27 November 2007',
+                    address: 'Jalan Hama',
+                    hobby: '',
+                    nra: '22.05.510.30',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Nurindah',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Nurindah&background=random&color=fff&size=150',
+                    fullName: 'Nurindah',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 17 Mei 2007',
+                    address: 'Bontorea',
+                    hobby: '',
+                    nra: '22.05.510.35',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muhammad Rizal',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Muhammad+Rizal&background=random&color=fff&size=150',
+                    fullName: 'Muhammad Rizal',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 7 Mei 2007',
+                    address: 'Sankoliran',
+                    hobby: '',
+                    nra: '22.05.510.044',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Fitri Damayanti',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Fitri+Damayanti&background=random&color=fff&size=150',
+                    fullName: 'Fitri Damayanti',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 3 Januari 2006',
+                    address: 'Barammamase',
+                    hobby: '',
+                    nra: '22.05.510.028',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Nur Isyabel Rudi R',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Nur+Isyabel+Rudi+R&background=random&color=fff&size=150',
+                    fullName: 'Nur Isyabel Rudi R',
+                    class: 'Pelajar',
+                    birth: '12 Maret 2008',
+                    address: 'Desa Tarowang Dusun Madallo',
+                    hobby: '',
+                    nra: '22.05.510.36',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Abdullah',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Abdullah&background=random&color=fff&size=150',
+                    fullName: 'Abdullah',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 28 November 2007',
+                    address: 'Sawakong',
+                    hobby: '',
+                    nra: '22.05.510.043',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Galang Saputra',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Galang+Saputra&background=random&color=fff&size=150',
+                    fullName: 'Galang Saputra',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 6 Agustus 2007',
+                    address: 'Baramamase',
+                    hobby: '',
+                    nra: '22.05.510.038',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Abd Rahim',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Abd+Rahim&background=random&color=fff&size=150',
+                    fullName: 'Abd Rahim',
+                    class: 'Pelajar',
+                    birth: 'Likoboddong, 29 November 2006',
+                    address: 'Likoboddong',
+                    hobby: '',
+                    nra: '22.05.510.34',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Arnita Fauziah M',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Arnita+Fauziah+M&background=random&color=fff&size=150',
+                    fullName: 'Arnita Fauziah M',
+                    class: 'Pelajar',
+                    birth: 'Kampungparang, 10 Oktober 2008',
+                    address: 'Kampungparang',
+                    hobby: '',
+                    nra: '22.05.510.040',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Fadilah',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Fadilah&background=random&color=fff&size=150',
+                    fullName: 'Fadilah',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 5 Juli 2007',
+                    address: 'Bontorea',
+                    hobby: '',
+                    nra: '22.05.510.041',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Ikbal',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Ikbal&background=random&color=fff&size=150',
+                    fullName: 'Ikbal',
+                    class: 'Pelajar',
+                    birth: 'Uweya Desa Tarowang, 12 Desember 2007',
+                    address: 'Uweya Desa Tarowang',
+                    hobby: '',
+                    nra: '22.05.510.032',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muh Rifal',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 5',
+                    img: 'https://ui-avatars.com/api/?name=Muh+Rifal&background=random&color=fff&size=150',
+                    fullName: 'Muh Rifal',
+                    class: 'Pelajar',
+                    birth: '9 Desember 2007',
+                    address: 'Bontomarannu',
+                    hobby: '',
+                    nra: '22.05.510.037',
+                    ig: '',
+                    fb: ''
+                }
+            ],
+            4: [
+                {
+                    name: 'Asdar',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Asdar&background=random&color=fff&size=150',
+                    fullName: 'Asdar',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 15 Februari 2006',
+                    address: 'Sangkolirang',
+                    hobby: '',
+                    nra: '21-05-510-004',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muhammad Iksan',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Muhammad+Iksan&background=random&color=fff&size=150',
+                    fullName: 'Muhammad Iksan',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 27 Januari 2007',
+                    address: 'Kadatong',
+                    hobby: '',
+                    nra: '21-05-510-005',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muh Alif',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Muh+Alif&background=random&color=fff&size=150',
+                    fullName: 'Muh Alif',
+                    class: 'Pelajar',
+                    birth: 'Kunjungmange, 4 April 2006',
+                    address: 'Kunjungmange',
+                    hobby: '',
+                    nra: '21-05-510-006',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Gilang Ramadhan',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Gilang+Ramadhan&background=random&color=fff&size=150',
+                    fullName: 'Gilang Ramadhan',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 20 Oktober 2006',
+                    address: 'Popo',
+                    hobby: '',
+                    nra: '21-05-510-007',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Adi Firansyah',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Adi+Firansyah&background=random&color=fff&size=150',
+                    fullName: 'Adi Firansyah',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 7 Maret 2006',
+                    address: 'Kunjungmange',
+                    hobby: '',
+                    nra: '21-05-510-008',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Siti Nuralisa',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Siti+Nuralisa&background=random&color=fff&size=150',
+                    fullName: 'Siti Nuralisa',
+                    class: 'Pelajar',
+                    birth: 'Saro, 2 Februari 2006',
+                    address: 'Saro',
+                    hobby: '',
+                    nra: '21-05-510-009',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Nur Fatimah',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Nur+Fatimah&background=random&color=fff&size=150',
+                    fullName: 'Nur Fatimah',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 23 Desember 2006',
+                    address: 'Popoloe',
+                    hobby: '',
+                    nra: '21-05-510-010',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Risna Wati',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Risna+Wati&background=random&color=fff&size=150',
+                    fullName: 'Risna Wati',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 16 Februari 2006',
+                    address: 'Tamadampeng',
+                    hobby: '',
+                    nra: '21-05-510-011',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Febrianti',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Febrianti&background=random&color=fff&size=150',
+                    fullName: 'Febrianti',
+                    class: 'Pelajar',
+                    birth: '',
+                    address: 'Makassar',
+                    hobby: '',
+                    nra: '21-05-510-012',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Asrawati',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Asrawati&background=random&color=fff&size=150',
+                    fullName: 'Asrawati',
+                    class: 'Pelajar',
+                    birth: 'Makassar, 12 Januari 2007',
+                    address: 'Bontokassi',
+                    hobby: '',
+                    nra: '21-05-510-013',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muh Andrian',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Muh+Andrian&background=random&color=fff&size=150',
+                    fullName: 'Muh Andrian',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 31 Mei 2007',
+                    address: 'Kale Bentang',
+                    hobby: '',
+                    nra: '21-05-510-014',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muhammad Arfah',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Muhammad+Arfah&background=random&color=fff&size=150',
+                    fullName: 'Muhammad Arfah',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 26 Desember 2005',
+                    address: 'Popo',
+                    hobby: '',
+                    nra: '21-05-510-015',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Kiesye Nuraliah',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Kiesye+Nuraliah&background=random&color=fff&size=150',
+                    fullName: 'Kiesye Nuraliah',
+                    class: 'Pelajar',
+                    birth: 'Sambas, 2 Agustus 2005',
+                    address: 'Bontokassi',
+                    hobby: '',
+                    nra: '21-05-510-016',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Hamsina',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Hamsina&background=random&color=fff&size=150',
+                    fullName: 'Hamsina',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 31 Desember 2006',
+                    address: 'Manari',
+                    hobby: '',
+                    nra: '21-05-510-017',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Irdawati',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Irdawati&background=random&color=fff&size=150',
+                    fullName: 'Irdawati',
+                    class: 'Pelajar',
+                    birth: 'Bontorea, 17 Agustus 2006',
+                    address: 'Bontorea',
+                    hobby: '',
+                    nra: '21-05-510-018',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Hasbi Ashahiddiqi',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Hasbi+Ashahiddiqi&background=random&color=fff&size=150',
+                    fullName: 'Hasbi Ashahiddiqi',
+                    class: 'Pelajar',
+                    birth: 'Makassar, 14 Oktober 2004',
+                    address: 'Kale Bentang',
+                    hobby: '',
+                    nra: '21-05-510-019',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Fitri Ramadani',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Fitri+Ramadani&background=random&color=fff&size=150',
+                    fullName: 'Fitri Ramadani',
+                    class: 'Pelajar',
+                    birth: 'Mandengeng, 6 Oktober 2005',
+                    address: 'Mandengeng',
+                    hobby: '',
+                    nra: '21-05-510-020',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Indriani',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Indriani&background=random&color=fff&size=150',
+                    fullName: 'Indriani',
+                    class: 'Pelajar',
+                    birth: 'Mandengeng, 23 Februari 2006',
+                    address: 'Mandengeng',
+                    hobby: '',
+                    nra: '21-05-510-021',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Ernawati',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Ernawati&background=random&color=fff&size=150',
+                    fullName: 'Ernawati',
+                    class: 'Pelajar',
+                    birth: 'Takalar, 3 Juni 2007',
+                    address: 'Popo',
+                    hobby: '',
+                    nra: '21-05-510-022',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Nurdian Anggreani',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Nurdian+Anggreani&background=random&color=fff&size=150',
+                    fullName: 'Nurdian Anggreani',
+                    class: 'Pelajar',
+                    birth: 'Mandengeng, 21 November 2006',
+                    address: 'Mandengeng',
+                    hobby: '',
+                    nra: '21-05-510-023',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muh Firmansyah',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Muh+Firmansyah&background=random&color=fff&size=150',
+                    fullName: 'Muh Firmansyah',
+                    class: 'Pelajar',
+                    birth: '21 September 2005',
+                    address: 'Untia',
+                    hobby: '',
+                    nra: '21-05-510-024',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Rifki Andy Saputra',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 4',
+                    img: 'https://ui-avatars.com/api/?name=Rifki+Andy+Saputra&background=random&color=fff&size=150',
+                    fullName: 'Rifki Andy Saputra',
+                    class: 'Pelajar',
+                    birth: 'Untia, 8 April 2007',
+                    address: 'Untia',
+                    hobby: '',
+                    nra: '21-05-510-025',
+                    ig: '',
+                    fb: ''
+                }
+            ],
             3: [
                 {
-                    name: 'MUHAMMAD IBRAHIM',
+                    name: 'Haekal',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 3',
+                    img: 'https://ui-avatars.com/api/?name=Haekal&background=random&color=fff&size=150',
+                    fullName: 'Haekal',
+                    class: '',
+                    birth: 'Pa\'battoan, 1 Juni 2004',
+                    address: 'Pa\'battoan',
+                    hobby: '',
+                    nra: '020.05.510.001',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muhammad Ibrahim',
                     role: 'Anggota',
                     cohort: 'Angkatan 3',
                     img: '3a.jpeg',
                     fullName: 'Muhammad Ibrahim',
                     class: 'XI IPA 2',
-                    birth: 'Takalar, 12 Agustus 2005',
-                    address: 'Jl. Pattimura No. 78, Takalar',
+                    birth: 'Takalar, 21 Januari 2005',
+                    address: 'Cambaya',
                     hobby: 'Bulu Tangkis, Musik',
+                    nra: '020-05-510-00',
                     ig: 'https://instagram.com/m_ibrahim',
                     fb: 'https://facebook.com/muhammad.ibrahim'
                 },
                 {
-                    name: 'HASBI ASHIDDIQI',
-                    role: 'Anggota',
-                    cohort: 'Angkatan 3',
-                    img: '3b.jpeg',
-                    fullName: 'Hasbi Ashiddiqi',
-                    class: 'XI IPA 3',
-                    birth: 'Takalar, 3 Maret 2005',
-                    address: 'Jl. Diponegoro No. 22, Takalar',
-                    hobby: 'Futsal, Membaca',
-                    ig: 'https://instagram.com/hasbi_ashiddiqi',
-                    fb: 'https://facebook.com/hasbi.ashiddiqi'
-                },
-                {
-                    name: 'ARIFUDDIN NURKAMAJAYA',
+                    name: 'Arifuddin Nurkamajaya',
                     role: 'Anggota',
                     cohort: 'Angkatan 3',
                     img: '3C.jpeg',
                     fullName: 'Arifuddin Nurkamajaya',
                     class: 'XI IPS 1',
-                    birth: 'Takalar, 20 Juli 2005',
-                    address: 'Jl. Sudirman No. 56, Takalar',
+                    birth: 'Takalar, 18 Februari 2005',
+                    address: 'Tanringmata',
                     hobby: 'Renang, Game',
+                    nra: '020-05-510-003',
                     ig: 'https://instagram.com/arifuddin_nk',
                     fb: 'https://facebook.com/arifuddin.nurkamajaya'
                 },
                 {
-                    name: 'MUSPIRA',
+                    name: 'Muspira',
                     role: 'Anggota',
                     cohort: 'Angkatan 3',
                     img: '3D.jpeg',
                     fullName: 'Muspira',
                     class: 'XI IPA 1',
-                    birth: 'Takalar, 8 November 2005',
-                    address: 'Jl. Ahmad Yani No. 33, Takalar',
+                    birth: 'Takalar, 15 Mei 2006',
+                    address: 'Popo',
                     hobby: 'Menari, Memasak',
+                    nra: '020-05-510-004',
                     ig: 'https://instagram.com/muspira_',
                     fb: 'https://facebook.com/muspira'
                 },
                 {
-                    name: 'ST FATIMAH AZZAHRA',
+                    name: 'Jumriani',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 3',
+                    img: 'https://ui-avatars.com/api/?name=Jumriani&background=random&color=fff&size=150',
+                    fullName: 'Jumriani',
+                    class: '',
+                    birth: 'Makassar, 17 Maret 2005',
+                    address: 'Bontokassi',
+                    hobby: '',
+                    nra: '020-05-510-005',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'St Fatimah Azzahrah',
                     role: 'Anggota',
                     cohort: 'Angkatan 3',
                     img: '3E.jpeg',
-                    fullName: 'St. Fatimah Azzahra',
+                    fullName: 'St Fatimah Azzahrah',
                     class: 'XI IPS 2',
-                    birth: 'Takalar, 25 Desember 2005',
-                    address: 'Jl. Gatot Subroto No. 67, Takalar',
+                    birth: 'Makassar, 6 September 2005',
+                    address: 'Popoloe',
                     hobby: 'Membaca, Menulis',
+                    nra: '020-05-510-006',
                     ig: 'https://instagram.com/fatimah_azzahra',
                     fb: 'https://facebook.com/fatimah.azzahra'
                 },
                 {
-                    name: 'RISNAWATI',
+                    name: 'Iramawati Nurul',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 3',
+                    img: 'https://ui-avatars.com/api/?name=Iramawati+Nurul&background=random&color=fff&size=150',
+                    fullName: 'Iramawati Nurul',
+                    class: '',
+                    birth: 'Takalar, 19 November 2005',
+                    address: 'Kanite',
+                    hobby: '',
+                    nra: '020.05.510.007',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Imelda Putri',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 3',
+                    img: 'https://ui-avatars.com/api/?name=Imelda+Putri&background=random&color=fff&size=150',
+                    fullName: 'Imelda Putri',
+                    class: '',
+                    birth: 'Makassar, 22 Maret 2005',
+                    address: 'Tanjung/Sidayu',
+                    hobby: '',
+                    nra: '020.05.510.008',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Hasbi Ashahiddiqi',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 3',
+                    img: '3b.jpeg',
+                    fullName: 'Hasbi Ashahiddiqi',
+                    class: 'XI IPA 3',
+                    birth: 'Takalar, 3 Maret 2005',
+                    address: 'Kale Bentang',
+                    hobby: 'Futsal, Membaca',
+                    nra: '020-05-510-002',
+                    ig: 'https://instagram.com/hasbi_ashiddiqi',
+                    fb: 'https://facebook.com/hasbi.ashiddiqi'
+                },
+                {
+                    name: 'Risnawati',
                     role: 'Anggota',
                     cohort: 'Angkatan 3',
                     img: '3F.jpeg',
@@ -1216,21 +2103,643 @@
                     birth: 'Takalar, 14 Februari 2005',
                     address: 'Jl. Pahlawan No. 12, Takalar',
                     hobby: 'Melukis, Menyanyi',
+                    nra: '020-05-510-010',
                     ig: 'https://instagram.com/risnawati_',
                     fb: 'https://facebook.com/risnawati'
                 }
             ],
-            2: [],
-            1: [],
-            0: []
+            2: [
+                {
+                    name: 'Muh Abadi Adam',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Muh+Abadi+Adam&background=random&color=fff&size=150',
+                    fullName: 'Muh Abadi Adam',
+                    class: '',
+                    birth: 'Takalar, 31 Juli 2003',
+                    address: 'Kadatong',
+                    hobby: '',
+                    nra: '19-05-510-001',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Aldi Al-Faisal',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Aldi+Al-Faisal&background=random&color=fff&size=150',
+                    fullName: 'Aldi Al-Faisal',
+                    class: '',
+                    birth: 'Kampung Parang, 13 Maret 2005',
+                    address: 'Kampung Parang',
+                    hobby: '',
+                    nra: '019-05-510-003',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muh Faturrahman E',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Muh+Faturrahman+E&background=random&color=fff&size=150',
+                    fullName: 'Muh Faturrahman E',
+                    class: '',
+                    birth: 'Makassar, 29 April 2004',
+                    address: 'Kassi Desa Bentang',
+                    hobby: '',
+                    nra: '019-05-510-004',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Rias Fadillah',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Rias+Fadillah&background=random&color=fff&size=150',
+                    fullName: 'Rias Fadillah',
+                    class: '',
+                    birth: 'Takalar, 15 Januari 2004',
+                    address: 'Bentang',
+                    hobby: '',
+                    nra: '019-05-510-005',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Randi',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Randi&background=random&color=fff&size=150',
+                    fullName: 'Randi',
+                    class: '',
+                    birth: 'Takalar, 14 Juli',
+                    address: 'Kadatong',
+                    hobby: '',
+                    nra: '019-05-510-008',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Elisa Rahmawati',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Elisa+Rahmawati&background=random&color=fff&size=150',
+                    fullName: 'Elisa Rahmawati',
+                    class: 'Mahasiswa',
+                    birth: 'Takalar, 22 Juli 2005',
+                    address: 'Borong Taipayya',
+                    hobby: '',
+                    nra: '019-05-510-011',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Hariyanti Harung',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Hariyanti+Harung&background=random&color=fff&size=150',
+                    fullName: 'Hariyanti Harung',
+                    class: '',
+                    birth: 'Takalar, 10 November 2004',
+                    address: 'Bontomarannu',
+                    hobby: '',
+                    nra: '019-05-510-012',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Musdalipa',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Musdalipa&background=random&color=fff&size=150',
+                    fullName: 'Musdalipa',
+                    class: '',
+                    birth: 'Takalar, 1 September 2002',
+                    address: 'Barammamase',
+                    hobby: '',
+                    nra: '019-05-510-013',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Musfira Auliya',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Musfira+Auliya&background=random&color=fff&size=150',
+                    fullName: 'Musfira Auliya',
+                    class: 'Mahasiswa',
+                    birth: 'Takalar, 15 Maret 2005',
+                    address: 'Kalukubodo',
+                    hobby: '',
+                    nra: '019-05-510-014',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Nadila Nurman',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Nadila+Nurman&background=random&color=fff&size=150',
+                    fullName: 'Nadila Nurman',
+                    class: 'Mahasiswa',
+                    birth: 'Gowa, 25 September 2004',
+                    address: 'Kadatong',
+                    hobby: '',
+                    nra: '019-05-510-015',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Nurhajar',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Nurhajar&background=random&color=fff&size=150',
+                    fullName: 'Nurhajar',
+                    class: '',
+                    birth: 'Bontomarannu, 23 Juni 2004',
+                    address: 'Bontomarannu',
+                    hobby: '',
+                    nra: '019-05-510-016',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Sitti Jannatun Aliyah W',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Sitti+Jannatun+Aliyah+W&background=random&color=fff&size=150',
+                    fullName: 'Sitti Jannatun Aliyah W',
+                    class: '',
+                    birth: 'Takalar, 23 Juni 2004',
+                    address: 'Bontomarannu',
+                    hobby: '',
+                    nra: '019-05-510-017',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Arlinda Febrianti',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Arlinda+Febrianti&background=random&color=fff&size=150',
+                    fullName: 'Arlinda Febrianti',
+                    class: '',
+                    birth: 'Takalar, 21 Februari 2004',
+                    address: 'Kalukubodo',
+                    hobby: '',
+                    nra: '019-05-510-018',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Ira Aswana',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Ira+Aswana&background=random&color=fff&size=150',
+                    fullName: 'Ira Aswana',
+                    class: '',
+                    birth: 'Takalar, 31 Desember 2004',
+                    address: 'Kalukubodo',
+                    hobby: '',
+                    nra: '019-05-510-019',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Husniati',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Husniati&background=random&color=fff&size=150',
+                    fullName: 'Husniati',
+                    class: '',
+                    birth: 'Takalar, 21 Desember 2004',
+                    address: 'Mangindara',
+                    hobby: '',
+                    nra: '019-05-510-021',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Nur Adha Ariska',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Nur+Adha+Ariska&background=random&color=fff&size=150',
+                    fullName: 'Nur Adha Ariska',
+                    class: '',
+                    birth: 'Bontoa, 10 Oktober 2004',
+                    address: 'Bontoa',
+                    hobby: '',
+                    nra: '019-05-510-022',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Reski Amelia',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Reski+Amelia&background=random&color=fff&size=150',
+                    fullName: 'Reski Amelia',
+                    class: '',
+                    birth: 'Takalar, 14 November 2004',
+                    address: 'Bentang',
+                    hobby: '',
+                    nra: '019-05-510-023',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Yuli Handayani',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Yuli+Handayani&background=random&color=fff&size=150',
+                    fullName: 'Yuli Handayani',
+                    class: '',
+                    birth: 'Takalar, 3 Juli 2004',
+                    address: 'Barammamase',
+                    hobby: '',
+                    nra: '019-05-510-024',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Mirawanti',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Mirawanti&background=random&color=fff&size=150',
+                    fullName: 'Mirawanti',
+                    class: '',
+                    birth: 'Takalar, 11 Mei 2004',
+                    address: 'Bentang',
+                    hobby: '',
+                    nra: '019-05-510-025',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Sopyan',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 2',
+                    img: 'https://ui-avatars.com/api/?name=Sopyan&background=random&color=fff&size=150',
+                    fullName: 'Sopyan',
+                    class: '',
+                    birth: '20 Juli 2004',
+                    address: 'Tanring Mata',
+                    hobby: '',
+                    nra: '19_05_510_009',
+                    ig: '',
+                    fb: ''
+                }
+            ],
+            1: [
+                {
+                    name: 'Sitti Nurhidayat',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Sitti+Nurhidayat&background=random&color=fff&size=150',
+                    fullName: 'Sitti Nurhidayat',
+                    class: 'Mahasiswa',
+                    birth: 'Takalar, 29 Desember 2002',
+                    address: 'Ballaparang Desa Mangindara',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muliyadi Anzhari',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Muliyadi+Anzhari&background=random&color=fff&size=150',
+                    fullName: 'Muliyadi Anzhari',
+                    class: 'Mahasiswa',
+                    birth: 'Makassar, 3 Mei 2003',
+                    address: 'Bontomarannu',
+                    hobby: '',
+                    nra: '018-510-003',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Sitti Amalia Fitrah',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Sitti+Amalia+Fitrah&background=random&color=fff&size=150',
+                    fullName: 'Sitti Amalia Fitrah',
+                    class: 'Mahasiswa',
+                    birth: '14 Juni 2002',
+                    address: 'Bontorea',
+                    hobby: '',
+                    nra: '018-510-008',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Nur Ariska',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Nur+Ariska&background=random&color=fff&size=150',
+                    fullName: 'Nur Ariska',
+                    class: 'Kerja di konter',
+                    birth: 'Takalar, 5 November 2002',
+                    address: 'Sawakong Lolo',
+                    hobby: '',
+                    nra: '018-510-009',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Ismail',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Ismail&background=random&color=fff&size=150',
+                    fullName: 'Ismail',
+                    class: 'Security',
+                    birth: 'Makassar, 22 Desember 2003',
+                    address: 'Jalan Ratulangi',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Sri Hardina Miwanti',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Sri+Hardina+Miwanti&background=random&color=fff&size=150',
+                    fullName: 'Sri Hardina Miwanti',
+                    class: 'Mahasiswa/Server Mas Eko',
+                    birth: '24 Maret 2002',
+                    address: 'Bontomarannu',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Nurhikmah Pebrianti',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Nurhikmah+Pebrianti&background=random&color=fff&size=150',
+                    fullName: 'Nurhikmah Pebrianti',
+                    class: 'Mahasiswi',
+                    birth: 'Bontokassi, 27 Februari 2003',
+                    address: 'Ballaparang Desa Mangindara',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Wulan Andriani',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Wulan+Andriani&background=random&color=fff&size=150',
+                    fullName: 'Wulan Andriani',
+                    class: 'Mahasiswi',
+                    birth: 'Takalar, 12 Juli 2003',
+                    address: 'Popoloe',
+                    hobby: '',
+                    nra: '18.05.510.016',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Risma Anwar',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Risma+Anwar&background=random&color=fff&size=150',
+                    fullName: 'Risma Anwar',
+                    class: 'Mahasiswi',
+                    birth: 'Takalar, 17 September 2002',
+                    address: 'Bontorea',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Haidir',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Haidir&background=random&color=fff&size=150',
+                    fullName: 'Haidir',
+                    class: 'KITRANS',
+                    birth: 'Makassar, 8 Agustus 2002',
+                    address: 'Jl. Sabutung Baru',
+                    hobby: '',
+                    nra: '18-05-510-01',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Jumriah Syarip',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Jumriah+Syarip&background=random&color=fff&size=150',
+                    fullName: 'Jumriah Syarip',
+                    class: 'Mahasiswa',
+                    birth: 'Takalar, 21 Mei 2004',
+                    address: 'Untia',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Ayu Lestari',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Ayu+Lestari&background=random&color=fff&size=150',
+                    fullName: 'Ayu Lestari',
+                    class: 'Mahasiswi',
+                    birth: 'Takalar, 7 Juli 2003',
+                    address: 'Popoloe',
+                    hobby: '',
+                    nra: '18-05-510-017',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Putri',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 1',
+                    img: 'https://ui-avatars.com/api/?name=Putri&background=random&color=fff&size=150',
+                    fullName: 'Putri',
+                    class: '',
+                    birth: 'Bontokassi, 7 Januari 2003',
+                    address: 'Borongtala Desa Bontokassi',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                }
+            ],
+            0: [
+                {
+                    name: 'Yustikawati',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 0',
+                    img: 'https://ui-avatars.com/api/?name=Yustikawati&background=random&color=fff&size=150',
+                    fullName: 'Yustikawati',
+                    class: '',
+                    birth: 'Takalar, 21 Februari 2001',
+                    address: 'Bontomarannu',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Ayu Dewi Patikaloba',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 0',
+                    img: 'https://ui-avatars.com/api/?name=Ayu+Dewi+Patikaloba&background=random&color=fff&size=150',
+                    fullName: 'Ayu Dewi Patikaloba',
+                    class: '',
+                    birth: 'Takalar, 19 Oktober 2001',
+                    address: 'Bontomarannu',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Salmawati Ramdhani',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 0',
+                    img: 'https://ui-avatars.com/api/?name=Salmawati+Ramdhani&background=random&color=fff&size=150',
+                    fullName: 'Salmawati Ramdhani',
+                    class: '',
+                    birth: 'Balang, 24 November 2001',
+                    address: 'Bontomarannu',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Rahmi',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 0',
+                    img: 'https://ui-avatars.com/api/?name=Rahmi&background=random&color=fff&size=150',
+                    fullName: 'Rahmi',
+                    class: '',
+                    birth: 'Untia, 23 Mei 2001',
+                    address: 'Dusun Untia',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Nursyasniar',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 0',
+                    img: 'https://ui-avatars.com/api/?name=Nursyasniar&background=random&color=fff&size=150',
+                    fullName: 'Nursyasniar',
+                    class: '',
+                    birth: '17 Agustus 2001',
+                    address: 'Sankoliran Desa Kale Bentang',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Nurinda Sari',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 0',
+                    img: 'https://ui-avatars.com/api/?name=Nurinda+Sari&background=random&color=fff&size=150',
+                    fullName: 'Nurinda Sari',
+                    class: 'Pelajar/Mahasiswa',
+                    birth: 'Takalar, 21 Mei 2001',
+                    address: 'Kato\'nokang Desa Bonto Kanan',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Sitti Amriana',
+                    role: 'Anggota',
+                    cohort: 'Angkatan 0',
+                    img: 'https://ui-avatars.com/api/?name=Sitti+Amriana&background=random&color=fff&size=150',
+                    fullName: 'Sitti Amriana',
+                    class: 'Pelajar/Mahasiswa',
+                    birth: 'Bontokassi, 2 Februari 2002',
+                    address: 'Borongtala',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                }
+            ],
+            pembina: [
+                {
+                    name: 'Armawati S.Pd MM',
+                    role: 'Kepala Sekolah',
+                    cohort: 'Pembina',
+                    img: 'https://ui-avatars.com/api/?name=Armawati&background=random&color=fff&size=150',
+                    fullName: 'Armawati S.Pd MM',
+                    class: 'ASN',
+                    birth: 'Takalar, 13 Desember 1978',
+                    address: 'BTN istana permai blok 4',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Nurlaela S.pd M.pd',
+                    role: 'Wakil Kepala Sekolah',
+                    cohort: 'Pembina',
+                    img: 'https://ui-avatars.com/api/?name=Nurlaela&background=random&color=fff&size=150',
+                    fullName: 'Nurlaela S.pd M.pd',
+                    class: 'PNS',
+                    birth: 'Wajo, 22 Juni 1973',
+                    address: 'Salajo',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Andi Mulawarman AM,S.Pd.,M.pd',
+                    role: 'Pembina Paskibra',
+                    cohort: 'Pembina',
+                    img: 'https://ui-avatars.com/api/?name=Andi+Mulawarman&background=random&color=fff&size=150',
+                    fullName: 'Andi Mulawarman AM,S.Pd.,M.pd',
+                    class: 'Guru',
+                    birth: 'Sinjai, 13 Oktober 1988',
+                    address: 'Tamadampeng',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                },
+                {
+                    name: 'Muhammad Agus Salim',
+                    role: 'Pelatih',
+                    cohort: 'Pembina',
+                    img: 'https://ui-avatars.com/api/?name=Muhammad+Agus+Salim&background=random&color=fff&size=150',
+                    fullName: 'Muhammad Agus Salim',
+                    class: 'Mahasiswa',
+                    birth: 'Takalar, 7 Agustus 1999',
+                    address: 'Cambayya',
+                    hobby: '',
+                    nra: '',
+                    ig: '',
+                    fb: ''
+                }
+            ]
         };
 
-        // Fungsi untuk menampilkan anggota berdasarkan angkatan
+        // Fungsi untuk menampilkan anggota berdasarkan angkatan (dari terbaru ke terlama)
         function displayMembers() {
             const membersContainer = document.querySelector('.members-container');
             
-            // Urutan angkatan yang diinginkan
-            const cohortOrder = ['pembina', 'pendiri', 7, 6, 5, 4, 3, 2, 1, 0];
+            // Urutan angkatan yang diinginkan (dari terbesar ke terkecil)
+            const cohortOrder = [6, 5, 4, 3, 2, 1, 0, 'pembina'];
             
             cohortOrder.forEach(cohort => {
                 const members = membersByCohort[cohort];
@@ -1238,13 +2747,11 @@
                 // Hanya tampilkan angkatan yang memiliki anggota
                 if (members && members.length > 0) {
                     const cohortHeading = document.createElement('h3');
-                    cohortHeading.className = 'cohort-heading';
+                    cohortHeading.className = 'cohort-heading reveal';
                     
                     // Format judul angkatan
                     if (cohort === 'pembina') {
                         cohortHeading.textContent = 'Pembina';
-                    } else if (cohort === 'pendiri') {
-                        cohortHeading.textContent = 'Pendiri';
                     } else {
                         cohortHeading.textContent = `Angkatan ${cohort}`;
                     }
@@ -1256,7 +2763,7 @@
                     
                     members.forEach(member => {
                         const memberCard = document.createElement('div');
-                        memberCard.className = 'member-card fade-in';
+                        memberCard.className = 'member-card reveal';
                         
                         memberCard.innerHTML = `
                             <div class="member-img-container">
@@ -1290,6 +2797,7 @@
             const modalBirth = document.getElementById('modalBirth');
             const modalAddress = document.getElementById('modalAddress');
             const modalHobby = document.getElementById('modalHobby');
+            const modalNRA = document.getElementById('modalNRA');
             const modalIg = document.getElementById('modalIg');
             const modalFb = document.getElementById('modalFb');
             
@@ -1303,6 +2811,7 @@
             modalBirth.textContent = member.birth;
             modalAddress.textContent = member.address;
             modalHobby.textContent = member.hobby;
+            modalNRA.textContent = member.nra;
             modalIg.href = member.ig;
             modalFb.href = member.fb;
             
@@ -1352,11 +2861,28 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if(window.scrollY > 50) {
-                header.style.backgroundColor = 'rgba(178, 34, 34, 0.95)';
+                header.classList.add('scrolled');
             } else {
-                header.style.backgroundColor = '';
+                header.classList.remove('scrolled');
             }
         });
+
+        // Scroll Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
 
         // Event listener untuk tombol close modal
         document.getElementById('closeModal').addEventListener('click', closeMemberModal);
@@ -1378,6 +2904,7 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             displayMembers();
+            reveal(); // Panggil sekali saat halaman dimuat
         });
     </script>
 </body>
