@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* Variabel Warna Merah-Cream */
+        /* Variabel Warna Modern */
         :root {
             --primary: #C62828;
             --primary-dark: #B71C1C;
@@ -225,7 +225,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.7)), url('smn.jpeg') no-repeat center center/cover;
+            background: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.7)), url('https://source.unsplash.com/random/1920x1080/?flag,indonesia') no-repeat center center/cover;
             display: flex;
             align-items: center;
             text-align: center;
@@ -254,7 +254,7 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             color: white;
             margin-bottom: 20px;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
@@ -263,7 +263,7 @@
         }
 
         .hero h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--secondary);
             margin-bottom: 25px;
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
@@ -272,7 +272,7 @@
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             margin-bottom: 35px;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
             animation: fadeInUp 1s ease 0.4s both;
@@ -1319,6 +1319,90 @@
             animation: float 7s ease-in-out infinite 1s;
         }
 
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--cream);
+            padding: 100px 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .testimonial-role {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero h1 {
@@ -1465,8 +1549,33 @@
             <div class="hero-content">
                 <h1>PASKIBRA UNIT 113</h1>
                 <h2>UPT SMAN 13 TAKALAR</h2>
+                <p>Membentuk Generasi Disiplin, Tangguh, dan Berkarakter</p>
                 <p>TERPAKSA, TERSIKSA DAN TERLATIH.</p>
                 <a href="#about" class="btn bounce">Pelajari Lebih Lanjut</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <span class="stat-number" data-count="150">0</span>
+                    <span class="stat-label">Total Anggota</span>
+                </div>
+                <div class="stat-item reveal">
+                    <span class="stat-number" data-count="7">0</span>
+                    <span class="stat-label">Angkatan</span>
+                </div>
+                <div class="stat-item reveal">
+                    <span class="stat-number" data-count="50">0</span>
+                    <span class="stat-label">Kegiatan/Tahun</span>
+                </div>
+                <div class="stat-item reveal">
+                    <span class="stat-number" data-count="15">0</span>
+                    <span class="stat-label">Penghargaan</span>
+                </div>
             </div>
         </div>
     </section>
@@ -1486,7 +1595,7 @@
                     <a href="#activities" class="btn glow">Lihat Kegiatan Kami</a>
                 </div>
                 <div class="about-image reveal slide-in-right">
-                    <img src="smn.jpeg" alt="Sekolah SMAN 13 Takalar">
+                    <img src="https://source.unsplash.com/random/600x400/?school,indonesia" alt="Sekolah SMAN 13 Takalar">
                 </div>
             </div>
         </div>
@@ -1543,31 +1652,31 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item reveal">
-                    <img src="HUT.JPEG" alt="Upacara HUT Kemerdekaan">
+                    <img src="https://source.unsplash.com/random/600x400/?ceremony,flag" alt="Upacara HUT Kemerdekaan">
                     <div class="gallery-overlay">
                         <span>Upacara HUT Kemerdekaan</span>
                     </div>
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="HUT2.JPEG" alt="Latihan Baris Berbaris">
+                    <img src="https://source.unsplash.com/random/600x400/?marching,uniform" alt="Latihan Baris Berbaris">
                     <div class="gallery-overlay">
                         <span>Latihan Baris Berbaris</span>
                     </div>
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="HUT1.JPEG" alt="Kegiatan Team Building">
+                    <img src="https://source.unsplash.com/random/600x400/?team,building" alt="Kegiatan Team Building">
                     <div class="gallery-overlay">
                         <span>Kegiatan Team Building</span>
                     </div>
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="HUT4.JPEG" alt="Pelatihan Kepemimpinan">
+                    <img src="https://source.unsplash.com/random/600x400/?leadership,training" alt="Pelatihan Kepemimpinan">
                     <div class="gallery-overlay">
                         <span>Pelatihan Kepemimpinan</span>
                     </div>
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="HUT3.JPEG" alt="Upacara Kenegaraan">
+                    <img src="https://source.unsplash.com/random/600x400/?national,ceremony" alt="Upacara Kenegaraan">
                     <div class="gallery-overlay">
                         <span>Upacara Kenegaraan</span>
                     </div>
@@ -1576,6 +1685,54 @@
                     <img src="https://source.unsplash.com/random/600x400/?youth,activity" alt="Kegiatan Sosial">
                     <div class="gallery-overlay">
                         <span>Kegiatan Sosial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimoni Anggota</h2>
+                <p>Pengalaman dan kesan anggota Paskibra UNIT 113</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-text">
+                        "Bergabung dengan Paskibra mengajarkan saya arti disiplin dan tanggung jawab yang sebenarnya. Pengalaman ini sangat berharga bagi perkembangan karakter saya."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Putri&background=random&color=fff&size=150" alt="Sarah Putri" class="testimonial-img">
+                        <div>
+                            <div class="testimonial-name">Sarah Putri</div>
+                            <div class="testimonial-role">Anggota Angkatan 4</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-text">
+                        "Paskibra tidak hanya tentang baris berbaris, tapi juga tentang membangun persaudaraan dan nasionalisme. Saya bangga menjadi bagian dari keluarga besar Paskibra."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Ahmad+Rizki&background=random&color=fff&size=150" alt="Ahmad Rizki" class="testimonial-img">
+                        <div>
+                            <div class="testimonial-name">Ahmad Rizki</div>
+                            <div class="testimonial-role">Anggota Angkatan 3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-text">
+                        "Melalui Paskibra, saya belajar tentang kerja sama tim dan kepemimpinan. Keterampilan ini sangat berguna baik di sekolah maupun dalam kehidupan sehari-hari."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Maya+Sari&background=random&color=fff&size=150" alt="Maya Sari" class="testimonial-img">
+                        <div>
+                            <div class="testimonial-name">Maya Sari</div>
+                            <div class="testimonial-role">Anggota Angkatan 5</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3179,28 +3336,25 @@
         // Data gambar untuk recap kegiatan
         const activityRecapImages = {
             'latihan-baris-berbaris': [
-                'HUT2.JPEG',
-                'HUT.JPEG',
-                'HUT1.JPEG',
-                'HUT4.JPEG',
-                'HUT3.JPEG',
-                'https://source.unsplash.com/random/600x400/?marching'
+                'https://source.unsplash.com/random/600x400/?marching,uniform',
+                'https://source.unsplash.com/random/600x400/?military,training',
+                'https://source.unsplash.com/random/600x400/?drill,ceremony',
+                'https://source.unsplash.com/random/600x400/?parade,flag',
+                'https://source.unsplash.com/random/600x400/?marching,band'
             ],
             'pengibaran-bendera': [
-                'HUT.JPEG',
-                'HUT2.JPEG',
-                'HUT1.JPEG',
-                'HUT4.JPEG',
-                'HUT3.JPEG',
-                'https://source.unsplash.com/random/600x400/?flag'
+                'https://source.unsplash.com/random/600x400/?flag,ceremony',
+                'https://source.unsplash.com/random/600x400/?indonesia,flag',
+                'https://source.unsplash.com/random/600x400/?national,ceremony',
+                'https://source.unsplash.com/random/600x400/?august,17',
+                'https://source.unsplash.com/random/600x400/?independence,day'
             ],
             'pembinaan-karakter': [
-                'HUT1.JPEG',
-                'HUT.JPEG',
-                'HUT2.JPEG',
-                'HUT4.JPEG',
-                'HUT3.JPEG',
-                'https://source.unsplash.com/random/600x400/?leadership'
+                'https://source.unsplash.com/random/600x400/?leadership,training',
+                'https://source.unsplash.com/random/600x400/?team,building',
+                'https://source.unsplash.com/random/600x400/?character,development',
+                'https://source.unsplash.com/random/600x400/?youth,activity',
+                'https://source.unsplash.com/random/600x400/?education,training'
             ]
         };
 
@@ -3340,6 +3494,27 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Fungsi untuk animasi counter stats
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const duration = 2000; // 2 seconds
+                const step = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 16);
+            });
+        }
+
         // Hamburger Menu Toggle
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
@@ -3431,6 +3606,19 @@
         document.addEventListener('DOMContentLoaded', function() {
             displayMembers();
             reveal(); // Panggil sekali saat halaman dimuat
+            
+            // Animate stats when they come into view
+            const statsSection = document.querySelector('.stats');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            observer.observe(statsSection);
         });
     </script>
 </body>
